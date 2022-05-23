@@ -6,11 +6,6 @@ pipeline {
     }
   stages {
     stage('build') {
-      when {
-        anyOf {
-          branch 'main'
-        }
-      }
 
       steps {
 
