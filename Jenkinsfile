@@ -14,7 +14,8 @@ pipeline {
 
       steps {
 
-        sh '''bundle install
+        sh '''bundle update --bundler
+        bundle install
         RAILS_ENV=test bundle exec rake db:migrate'''
     }
 }
