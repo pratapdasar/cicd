@@ -5,16 +5,6 @@ pipeline {
         API_KEY = 'tRzfvPkFzw1DFTJRBLD2W3bOWk59tziC6O5DnhNM'
     }
   stages {
-      stage('Regression Productioni1') {
-          when {
-        branch 'main'
-      }
-      steps {
-        script {
-          httpRequest(url: 'https://api.reflect.run/v1/suites/test/executions', customHeaders: [[name: 'x-api-key', value: "${API_KEY}"]], requestBody: '{}')
-        }
-      }
-    }
     stage('build') {
       when {
         anyOf {
@@ -24,8 +14,7 @@ pipeline {
 
       steps {
 
-        sh '''rvm reinstall ruby-2.5.1 
-        rvm --default use 2.5.1
+        sh ''' rvm install "ruby-2.5.1"
         ruby -version
         rvm version
         rvm list 
@@ -33,6 +22,16 @@ pipeline {
         bundle install
         bundle update --bundler
         RAILS_ENV=test bundle exec rake db:migrate'''
+    }
+          stage('Regression Productioni1') {
+          when {
+        branch 'main'
+      }
+      steps {
+        script {
+          httpRequest(url: 'https://api.reflect.run/v1/suites/test/executions', customHeaders: [[name: 'x-api-key', value: "${API_KEY}"]], requestBody: '{}')
+        }
+      }
     }
 }
     stage('current-production-deploy') {
