@@ -14,11 +14,11 @@ pipeline {
 
       steps {
 
-        sh '''rbenv reinstall ruby-2.5.1 
-        rbenv --default use 2.5.1
+        sh '''rvm reinstall ruby-2.5.1 
+        rvm --default use 2.5.1
         ruby -version
-        rbenv version
-        rbenv list 
+        rvm version
+        rvm list 
         export PATH=~/.rvm/rubies/ruby-2.5.1/bin/:$PATH
         bundle install
         bundle update --bundler
