@@ -15,7 +15,9 @@ pipeline {
       steps {
 
         sh ''' /var/lib/jenkins/.rvm/bin/rvm install "ruby-2.5.1"
-        /var/lib/jenkins/.rvm/bin/rvm list 
+        /var/lib/jenkins/.rvm/bin/rvm list
+        /var/lib/jenkins/.rvm/rubies/ruby-2.5.1/bin/gem install bundler:2.3.14
+        /var/lib/jenkins/.rvm/rubies/ruby-2.5.1/bin/bundle update --bundler 
         /var/lib/jenkins/.rvm/rubies/ruby-2.5.1/bin/bundle install
         RAILS_ENV=test /var/lib/jenkins/.rvm/rubies/ruby-2.5.1/bin/bundle exec rake db:migrate'''
     }
