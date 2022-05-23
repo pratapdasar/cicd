@@ -14,7 +14,8 @@ pipeline {
 
       steps {
 
-        sh '''ls -ltr /var/lib/jenkins/.rvm/gems/ruby-2.5.1/bin/bundle
+        sh '''pwd
+        /var/lib/jenkins/.rvm/gems/ruby-2.5.1/bin/bundle
         which bundle
         /var/lib/jenkins/.rvm/bin/rvm install "ruby-2.5.1"
         /var/lib/jenkins/.rvm/bin/rvm list
