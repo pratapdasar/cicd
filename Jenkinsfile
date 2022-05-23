@@ -9,14 +9,7 @@ pipeline {
 
       steps {
 
-        sh '''pwd
-        /var/lib/jenkins/.rvm/gems/ruby-2.5.1/bin/bundle
-        which bundle
-        /var/lib/jenkins/.rvm/bin/rvm install "ruby-2.5.1"
-        /var/lib/jenkins/.rvm/bin/rvm list
-        bundle update --bundler 
-        bundle install
-        RAILS_ENV=test bundle exec rake db:migrate'''
+        sh 'ruby ./script.rb'
     }
     }
           stage('Regression Productioni1') {
