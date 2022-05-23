@@ -14,7 +14,8 @@ pipeline {
 
       steps {
 
-        sh ''' rvm --default use 2.5.1
+        sh '''rvm reinstall ruby-2.5.1 
+        rvm --default use 2.5.1
         ruby -version
         rvm version
         rvm list 
