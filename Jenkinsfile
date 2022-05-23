@@ -16,9 +16,8 @@ pipeline {
 
         sh ''' /var/lib/jenkins/.rvm/bin/rvm install "ruby-2.5.1"
         /var/lib/jenkins/.rvm/bin/rvm list 
-        bundle install
-        bundle update --bundler
-        RAILS_ENV=test bundle exec rake db:migrate'''
+        b/var/lib/jenkins/.rvm/rubies/ruby-2.5.1/bin/bundle install
+        RAILS_ENV=test /var/lib/jenkins/.rvm/rubies/ruby-2.5.1/bin/bundle exec rake db:migrate'''
     }
     }
           stage('Regression Productioni1') {
