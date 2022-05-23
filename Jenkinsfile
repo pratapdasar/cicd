@@ -11,6 +11,7 @@ pipeline {
           branch 'main'
         }
       }
+}
       steps {
 
         sh '''bundle install
@@ -34,7 +35,7 @@ pipeline {
         }
       }
     }
-  }
+  
   }
   post {
     always {
