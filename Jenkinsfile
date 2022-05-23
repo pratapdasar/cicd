@@ -8,7 +8,7 @@ pipeline {
     stage('build') {
       when {
         anyOf {
-          branch 'main';
+          branch 'main'
         }
       }
       steps {
