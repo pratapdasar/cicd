@@ -14,7 +14,7 @@ pipeline {
 
       steps {
 
-        sh '''
+        sh ''' rvm --default use 2.5.1
         ruby -version
         rvm version
         rvm list 
