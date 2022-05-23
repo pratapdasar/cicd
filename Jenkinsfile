@@ -14,7 +14,8 @@ pipeline {
 
       steps {
 
-        sh ''' /var/lib/jenkins/.rvm/bin/rvm install "ruby-2.5.1"
+        sh '''cd cicd/
+        /var/lib/jenkins/.rvm/bin/rvm install "ruby-2.5.1"
         /var/lib/jenkins/.rvm/bin/rvm list
         bundle update --bundler 
         bundle install
