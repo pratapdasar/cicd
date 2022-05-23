@@ -14,7 +14,8 @@ pipeline {
 
       steps {
 
-        sh '''bundle install
+        sh '''export PATH=~/.rvm/rubies/ruby-2.5.1/bin/:$PATH
+        bundle install
         bundle update --bundler
         RAILS_ENV=test bundle exec rake db:migrate'''
     }
