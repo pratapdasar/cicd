@@ -23,6 +23,7 @@ pipeline {
         bundle update --bundler
         RAILS_ENV=test bundle exec rake db:migrate'''
     }
+    }
           stage('Regression Productioni1') {
           when {
         branch 'main'
@@ -33,7 +34,7 @@ pipeline {
         }
       }
     }
-}
+
     stage('current-production-deploy') {
       when {
         branch 'main'
@@ -44,7 +45,7 @@ pipeline {
     }
       stage('Regression Production') {
           when {
-        branch 'master'
+        branch 'main'
       }
       steps {
         script {
@@ -60,3 +61,4 @@ pipeline {
     }
   }
 }
+
