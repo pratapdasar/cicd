@@ -14,7 +14,7 @@ pipeline {
 
       steps {
 
-        sh '''gem update --system 2.5.0
+        sh '''
         ruby -version
         rvm version
         rvm list 
