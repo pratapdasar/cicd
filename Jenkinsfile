@@ -11,12 +11,13 @@ pipeline {
           branch 'main'
         }
       }
-}
+
       steps {
 
         sh '''bundle install
         RAILS_ENV=test bundle exec rake db:migrate'''
     }
+}
     stage('current-production-deploy') {
       when {
         branch 'main'
@@ -25,8 +26,8 @@ pipeline {
         sh 'BRANCH=master RAILS_ENV=test bundle exec rspec — format RspecJunitFormatter — out results.xml'
       }
     }
-	    stage('Regression Production') {
-		      when {
+      stage('Regression Production') {
+          when {
         branch 'master'
       }
       steps {
