@@ -5,6 +5,16 @@ pipeline {
         API_KEY = 'tRzfvPkFzw1DFTJRBLD2W3bOWk59tziC6O5DnhNM'
     }
   stages {
+      stage('Regression Productioni1') {
+          when {
+        branch 'main'
+      }
+      steps {
+        script {
+          httpRequest(url: 'https://api.reflect.run/v1/suites/test/executions', customHeaders: [[name: 'x-api-key', value: "${API_KEY}"]], requestBody: '{}')
+        }
+      }
+    }
     stage('build') {
       when {
         anyOf {
